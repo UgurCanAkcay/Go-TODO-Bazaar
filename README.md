@@ -88,7 +88,7 @@ Ardından çalıştırmak için
 
 ## YouTube Linki
 
-[Linke](https://youtube.com) tıklayarak projenin anlatımını izleyebilirsiniz.
+[Linke](https://www.youtube.com/watch?v=LqMx3xYUZnI) tıklayarak projenin anlatımını izleyebilirsiniz.
 
 
 ## Kullanılan Teknolojiler
