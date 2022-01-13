@@ -8,6 +8,7 @@
 ## Nasıl Kurulur&Nasıl Çalıştırılır?
 Uygulama arayüzü zenity ile programlandığından bilgisayarınızda zenity kurulu olmalıdır.
 Kurulum için aşağıdaki komutu kullanabilirsiniz.
+
 ```sudo apt-get install zenity```
 
 Projeye çalıştırabilme yetkisi vermek için:
