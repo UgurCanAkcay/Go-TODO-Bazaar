@@ -19,34 +19,56 @@ i=0
 if [ $var == "Alinacaklar" ]
 then
 	i=1
-	add=$(zenity --entry --width=350 --height=250 --title=""Bazaardan Alinacaklar"" --text="Bazaardan Alinacaklari Giriniz : ")
+	add=$(zenity --entry \
+		     --title=""Bazaardan Alinacaklar"" \
+		     --text="Bazaardan Alinacaklari Giriniz : " \
+		     --width=350 \
+		     --height=250 )
 	if [ $? = 0 ]
 	then
-	zenity --info --width=450 --height=300 --text="$add isimli alinacak basariyla eklenmistir."
+	zenity --info \
+	       --text="$add isimli alinacak basariyla eklenmistir." \
+	       --width=450 \
+	       --height=300 
 		echo $add >> alinacaklar.txt
 	else
-		zenity --info --width=350 --height=250 --text="$add isimli alinacak basariyla eklenememistir."
+		zenity --info \
+		       --text="$add isimli alinacak basariyla eklenememistir." \
+		       --width=350 \
+		       --height=250
+		       
 	fi
 fi
 
 if [ $var == "AlinacaklariAra" ]
 then
 	i=1
-	ara=$(zenity --entry --width=350 --height=250 --title="Alinacaklari Ara" --text="Alinacak nesnenin adini giriniz : ")
+	ara=$(zenity --entry \
+		     --title="Alinacaklari Ara" \
+		     --text="Alinacak nesnenin adini giriniz : " \
+		     --width=350 \
+		     --height=250 )
 	if [ $? == 0 ]
         then
 		kontrol=$(cat alinacaklar.txt | grep -w $ara)
 		if [ $? == 0 ]
 		then
-			zenity --info --width=350 --height=250 --text "$ara Alinacak nesne listede bulundu!"
-			
+			zenity --info \
+			       --text "$ara Alinacak nesne listede bulundu!" \
+			       --width=350 \
+			       --height=250 \
 		else
-			zenity --info --width=350 --height=250 --text "$ara Alinacak nesne listede bulunamadi!"
+			zenity --info \
+			       --text "$ara Alinacak nesne listede bulunamadi!" \
+			       --width=350 \
+			       --height=250      
 		fi
 	else
-		zenity --info --width=350 --height=250 --text "Arama Yapilamadi"	
+		zenity --info \
+		       --text "Arama Yapilamadi" \
+		       --width=350 \
+		       --height=250 \
 	fi
-
 fi
 
 if [ $var == "AlinacaklariGor" ]
@@ -59,23 +81,33 @@ fi
 if [ $var == "Alindi" ]
 then
 	i=1
-        sil=$(zenity --entry --width=350 --height=250 --title="Nesne Alindi" --text="Alinan nesnenin adi giriniz : ")
+        sil=$(zenity --entry \
+	             --title="Nesne Alindi" \
+		     --text="Alinan nesnenin adi giriniz : " \
+	             --width=350 \
+		     --height=250 )
         if [ -z "$sil" ]
 	then
-		zenity --info --width=350 --height=250 --text "Silme Islemi Gerceklesemedi!"
+		zenity --info \
+		       --text "Silme Islemi Gerceklesemedi!" \
+		       --width=350 \
+		       --height=250 
 	else
 		kontrol=$(cat alinacaklar.txt | grep -w $sil)
 		if [ $? == 1 ]
 		then
-			zenity --info --width=350 --height=250 --text "$sil Adlı Nesne Bazaar Listesinde Bulunmamaktadir"
+			zenity --info \
+			       --text "$sil Adlı Nesne Bazaar Listesinde Bulunmamaktadir" \
+			       --width=350 \
+			       --height=250 
 		else 
-	
 			grep -v -w $sil  alinacaklar.txt > tmpfile && mv tmpfile alinacaklar.txt
-			zenity --info --width=350 --height=250 --text="$sil Adli nesne silinmistir."
+			zenity --info \
+			       --text="$sil Adli nesne silinmistir." \
+			       --width=350 \ 
+			       --height=250 
 		fi
-	fi
-	
-		
+	fi	
 fi
 
 if [ $var == "Exit" ]
